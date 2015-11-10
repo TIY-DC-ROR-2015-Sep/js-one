@@ -1,0 +1,23 @@
+<p>
+    The <span>current</span> count is <span class="counter-display">going to be overwritten by javascripts</span>
+<p>
+
+<button class="increment-counter">Up!</button>
+
+<!-- For now, put your js is a file down at the bottom of whichever view you're rendering -->
+<script type="text/javascript">
+  var count = 0;
+
+  var incButton = document.querySelector(".increment-counter")
+  var displayNode = document.querySelector("span.counter-display")
+
+  incButton.addEventListener("click", function() {
+    //alert("Button was clicked");
+    if (count < 10) {
+      count += 1;
+      displayNode.innerText = count;
+    } else {
+      displayNode.innerHTML = '<img src="https://i.imgflip.com/txo8v.jpg">'
+    }
+  })
+</script>
