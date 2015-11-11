@@ -6,6 +6,13 @@
 <a href="/place/we/dont/want/to/go/now/that/we/have/js/" class="increment-counter">Up!</a>
 <a href="/place/we/dont/want/to/go/now/that/we/have/js/" class="increment-counter">Up!</a>
 
+<form action="/message" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>What do you want to say?</p>
+  <input type="text" name="thing_to_echo">
+  <button>Go!</button>
+</form>
+
 <!-- For now, put your js is a file down at the bottom of whichever view you're rendering -->
 <script type="text/javascript">
   var count = 0;
@@ -13,13 +20,14 @@
   var incButtons = document.querySelectorAll(".increment-counter");
   var displayNode = document.querySelector("span.counter-display");
 
+  // incButtons.each do |incButton|
   for (var i = 0; i < incButtons.length; i ++) {
-    incButton = incButtons[i];
+    var incButton = incButtons[i];
     incButton.addEventListener("click", function(e) {
       // This stops the link from actually making a GET request
       e.preventDefault();
 
-      //alert("Button was clicked");
+      // alert("Button was clicked");
       if (count < 10) {
         count += 1;
         displayNode.innerText = count;
