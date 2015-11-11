@@ -6,9 +6,15 @@
 <a href="/place/we/dont/want/to/go/now/that/we/have/js/" class="increment-counter">Up!</a>
 <a href="/place/we/dont/want/to/go/now/that/we/have/js/" class="increment-counter">Up!</a>
 
-<form action="/message" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>What do you want to say?</p>
-  <input type="text" name="thing_to_echo">
-  <button>Go!</button>
-</form>
+<% 3.times do %>
+  <div>
+    <button class="toggle-form">Show</button>
+
+    <form action="/message" method="post" class="echo-form" style="display: none;">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <p>What do you want to say?</p>
+      <input type="text" name="thing_to_echo">
+      <button>Go!</button>
+    </form>
+  </div>
+<% end %>

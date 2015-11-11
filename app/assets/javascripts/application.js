@@ -19,9 +19,8 @@
 // window.location = "http://google.com"
 // window.onload = function() { alert("loaded"); }
 
-// alert("Before attaching load");
-window.onload = function() {
-  // alert("Document loaded");
+
+function addCounterHandlers() {
   var count = 0;
 
   var incButtons = document.querySelectorAll(".increment-counter");
@@ -51,4 +50,22 @@ window.onload = function() {
     });
   }
 }
-// alert("Down here");
+
+function addFormToggle() {
+  var toggleButton = document.querySelector(".toggle-form");
+  toggleButton.addEventListener("click", function() {
+    var form = document.querySelector(".echo-form");
+    if (form.style.display === "none") {
+      form.style.display = "block";
+      toggleButton.innerHTML = "Hide";
+    } else {
+      form.style.display = "none";
+      toggleButton.innerHTML = "Show";
+    }
+  })
+}
+
+window.onload = function() {
+  addCounterHandlers();
+  addFormToggle();
+}
