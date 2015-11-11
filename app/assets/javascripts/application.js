@@ -51,18 +51,25 @@ function addCounterHandlers() {
   }
 }
 
-function addFormToggle() {
-  var toggleButton = document.querySelector(".toggle-form");
-  toggleButton.addEventListener("click", function() {
-    var form = document.querySelector(".echo-form");
+function addOneButtonToggle(button) {
+  button.addEventListener("click", function() {
+    var form = button.parentNode.querySelector(".echo-form");
     if (form.style.display === "none") {
       form.style.display = "block";
-      toggleButton.innerHTML = "Hide";
+      button.innerHTML = "Hide";
     } else {
       form.style.display = "none";
-      toggleButton.innerHTML = "Show";
+      button.innerHTML = "Show";
     }
   })
+}
+
+function addFormToggle() {
+  var toggleButtons = document.querySelectorAll(".toggle-form");
+  for (var i = 0; i < toggleButtons.length; i++) {
+    var b = toggleButtons[i];
+    addOneButtonToggle(b);
+  }
 }
 
 window.onload = function() {
